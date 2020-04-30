@@ -1,0 +1,32 @@
+(.devops) sunshine-2:project-ml-microservice-kubernetes ElMokdad$ kubectl get pod
+NAME                        READY   STATUS    RESTARTS   AGE
+elmokdad-5d4fb4ddcb-v6pq5   1/1     Running   0          30m
+test-8475ddc55f-6st2l       1/1     Running   0          21m
+udacity-7f6774dd44-l8b2s    1/1     Running   0          13m
+(.devops) sunshine-2:project-ml-microservice-kubernetes ElMokdad$ ./run_kubernetes.sh 
+Error from server (AlreadyExists): deployments.apps "udacity" already exists
+NAMESPACE     NAME                               READY   STATUS    RESTARTS   AGE
+default       elmokdad-5d4fb4ddcb-v6pq5          1/1     Running   0          30m
+default       test-8475ddc55f-6st2l              1/1     Running   0          21m
+default       udacity-7f6774dd44-l8b2s           1/1     Running   0          13m
+kube-system   coredns-66bff467f8-bjr2n           1/1     Running   0          36m
+kube-system   coredns-66bff467f8-zn8jc           1/1     Running   0          36m
+kube-system   etcd-minikube                      1/1     Running   0          36m
+kube-system   kube-apiserver-minikube            1/1     Running   0          36m
+kube-system   kube-controller-manager-minikube   1/1     Running   0          36m
+kube-system   kube-proxy-qqvz8                   1/1     Running   0          36m
+kube-system   kube-scheduler-minikube            1/1     Running   0          36m
+kube-system   storage-provisioner                1/1     Running   0          36m
+Error from server (AlreadyExists): services "udacity" already exists
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+[2020-04-28 19:26:00,338] INFO in app: JSON payload:
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2020-04-28 19:26:00,356] INFO in app: Inference payload DataFrame:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2020-04-28 19:26:00,891] INFO in app: Scaling Payload:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2020-04-28 19:26:00,371] INFO in app: Output prediction: [20.35373177134412]
+127.0.0.1 - - [28/Apr/2020 19:26:00] "POST /predict HTTP/1.1" 200 -
